@@ -29,7 +29,7 @@ export default function Offer() {
                     <h3>{house.address}</h3>
                     <h3>{house.price}</h3>
                     <h3>{house._id}</h3>
-                    <Link to={{ pathname:"/dom", state: { houseId: house._id }}}>Szczegóły</Link>
+                    <Link to={{ pathname:"/dom", state: { houseData: house }}}>Szczegóły</Link>
                 </div>
             )) : ""}
 
