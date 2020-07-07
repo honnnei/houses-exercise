@@ -3,14 +3,11 @@ import Axios from 'axios';
 import { Link } from "react-router-dom";
 
 export default function Offer() {
-
     const [houseData, setHouseData] = useState([]);
 
     const getHouseData = () => {
         Axios.get('http://mr-test-backend.sadek.usermd.net/houses')
             .then((response) => {
-            //   window.location.reload(false);
-            console.log(response.data);
             setHouseData(response.data.houses)
             }).catch((error) => {
               console.log(error);
@@ -21,8 +18,6 @@ export default function Offer() {
         if (window.confirm("Are you sure you would like to delete this?")) {
             Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${houseId}`)
             .then((response) => {
-            //   window.location.reload(false);
-            console.log(response);
             getHouseData();
             }).catch((error) => {
               console.log(error);
@@ -32,7 +27,7 @@ export default function Offer() {
 
     useEffect(() => {
         getHouseData();
-      }, []);
+    }, []);
 
     return (
         <div>
@@ -47,7 +42,6 @@ export default function Offer() {
                     <button className="subtitle" onClick={() => deleteHouse(house._id)}>Usuń</button>
                 </div>
             )) : ""}
-
         </div>
-    )
+    );
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function GalleryCard() {
     return (
@@ -10,5 +10,5 @@ export default function GalleryCard() {
                 <img className="image" src="https://images.unsplash.com/photo-1570905705971-e6f513246752?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=833&q=80" alt="house" />        
             </div>
         </div>
-    )
+    );
 }

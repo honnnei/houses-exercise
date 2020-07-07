@@ -9,5 +9,5 @@ export default function ArticlesCard() {
            <h1 className="subtitle-2">Architektura</h1>
            <h1 className="subtitle-2">Remonty</h1>
         </div>
-    )
+    );
 }

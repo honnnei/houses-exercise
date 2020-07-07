@@ -13,8 +13,6 @@ export default function AddHouseForm() {
 
     const addHouse = (event) => {
         event.preventDefault();
-        console.log(houseAddress, houseOwner, housePrice, houseArea);
-
         Axios.post('http://mr-test-backend.sadek.usermd.net/houses', {
            address: houseAddress,
            owner: houseOwner,
@@ -60,7 +58,6 @@ export default function AddHouseForm() {
                 />
                 <button className="subtitle" onClick={addHouse}>Dodaj Dom</button>
             </form>
-            
         </div>
-    )
+    );
 }

@@ -11,7 +11,6 @@ export default function Homepage() {
             <GalleryCard />
             <ArticlesCard />
             <OfferCard />
-            
         </div>
-    )
+    );
 }
