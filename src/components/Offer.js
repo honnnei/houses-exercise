@@ -37,7 +37,6 @@ export default function Offer() {
                 <div>
                     <h3>{house.address}</h3>
                     <h3>{house.price}</h3>
-                    <h3>{house._id}</h3>
                     <button className="subtitle"><Link to={{ pathname:"/dom", state: { houseData: house }}}>Szczegóły</Link></button>
                     <button className="subtitle" onClick={() => deleteHouse(house._id)}>Usuń</button>
                 </div>
