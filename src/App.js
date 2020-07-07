@@ -1,6 +1,11 @@
 import React from 'react';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import './App.css';
+import Homepage from './containers/Homepage';
+import AboutUs from './components/AboutUs';
+import Offer from './components/Offer';
+import HouseDetails from './components/HouseDetails';
+import AddHouseForm from './components/AddHouseForm';
 
 function App() {
   return (
