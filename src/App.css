@@ -29,11 +29,6 @@ html, body, #root {
 
 .gallery-card {
   grid-area: topright;
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "topleft topright"
-  "bottomleft bottomright"; */
 }
 
 .images-container {
@@ -41,24 +36,9 @@ html, body, #root {
   flex-wrap: wrap;
 }
 
-/* .image-1 {
-  grid-area: topleft;
-}
-
-.image-2 {
-  grid-area: topright;
-}
-
-.image-3 {
-  grid-area: bottmleft;
-}
-
-.image-4 {
-  grid-area: bottomright;
-} */
-
 .articles-card {
   grid-area: bottomleft;
+  background-image: url(https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80);
 }
 
 .offer-card {
@@ -66,33 +46,54 @@ html, body, #root {
 }
 
 .card {
-  /* max-width: 50vw;
-  min-width: 49vw;
-  max-height: 50vw;
-  min-height: 49vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  border: black solid 1px;
   margin: 0;
 }
-
-/* .homepage-container {
-  display: flex;
-  flex-wrap: wrap;
-  height: 100vh;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-} */
 
 .image {
   width: 50%;
   height: 50%;
   margin: 0;
   flex: 1 0 calc(25% - 10px);
+}
+
+/* Homepage */
+
+.title {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  color: black;
+}
+
+.subtitle {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+  color: rgb(34, 147, 253);
+}
+
+.subtitle-2 {
+  font-family: 'Lato', sans-serif;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  border: solid rgb(34, 147, 253) 1px;
+  background-color: white;
+  background-size: inherit;
+  padding: 0.5em;
+}
+
+p {
+  padding: 2em;
+  text-align: justify;
 }
 
 @media only screen and (max-width: 768px) {
@@ -108,5 +109,19 @@ html, body, #root {
     text-align: center;
     border: black solid 1px;
     margin: 0;
+  }
+
+  .homepage-container {
+    width: 100vw;
+    height: 100vw;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "topleft"
+    "topright"
+    "bottomleft" 
+    "bottomright";
   }
 }
