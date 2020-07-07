@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Axios from 'axios';
 
 export default function AddHouseForm() {
@@ -31,6 +32,7 @@ export default function AddHouseForm() {
 
     return (
         <div className="addhouseform-container">
+            <button className="subtitle"><Link to='/oferta'>Wróć</Link></button>
             <form>
                 <label>Adres</label>
                 <input
@@ -56,7 +58,7 @@ export default function AddHouseForm() {
                 value={houseArea}
                 onChange={(e) => setHouseArea(e.target.value)}
                 />
-                <button onClick={addHouse}>Dodaj Dom</button>
+                <button className="subtitle" onClick={addHouse}>Dodaj Dom</button>
             </form>
             
         </div>

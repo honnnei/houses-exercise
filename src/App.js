@@ -6,7 +6,6 @@ import AboutUs from './components/AboutUs';
 import Offer from './components/Offer';
 import HouseDetails from './components/HouseDetails';
 import AddHouseForm from './components/AddHouseForm';
-import Navbar from './components/Navbar';
 
 function App() {
   return (
