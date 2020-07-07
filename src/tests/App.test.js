@@ -6,8 +6,6 @@ import { Route } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import Homepage from '../containers/Homepage';
 import AboutUs from '../components/AboutUs';
-import AddHouseForm from '../components/AddHouseForm';
-import HouseDetails from '../components/HouseDetails';
 import Offer from '../components/Offer';
 
 describe('App', () => {

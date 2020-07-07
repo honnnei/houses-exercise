@@ -6,10 +6,11 @@ import AboutUs from './components/AboutUs';
 import Offer from './components/Offer';
 import HouseDetails from './components/HouseDetails';
 import AddHouseForm from './components/AddHouseForm';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="app_container">
+    <div className="app-container">
       <BrowserRouter >
       <Switch>
             <Route id="homepage" path='/' exact component={Homepage}/>
