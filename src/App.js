@@ -16,7 +16,8 @@ function App() {
             <Route id="homepage" path='/' exact component={Homepage}/>
             <Route id="about_us" path='/o-nas' exact component={AboutUs}/>
             <Route id="offer" path='/oferta' exact component={Offer}/>
-            <Route id="details" path='/oferta/:id' exact render={(props) => <HouseDetails />}/>
+            <Route id="details" path='/dom' exact render={(props) => <HouseDetails {...props}/>}/>
+            {/* render={(props) => <GamePage {...props} */}
             <Route id="add_house" path='/dodaj-dom' exact component={AddHouseForm}/>
           </Switch>
       </BrowserRouter>

@@ -24,10 +24,12 @@ export default function Offer() {
     return (
         <div>
             <Link to='/dodaj-dom'>Dodaj Dom</Link>
-            {houseData ? houseData.map(house => (
+            {houseData ? houseData.map((house, id) => (
                 <div>
                     <h3>{house.address}</h3>
                     <h3>{house.price}</h3>
+                    <h3>{house._id}</h3>
+                    <Link to={{ pathname:"/dom", state: { houseId: house._id }}}>Szczegóły</Link>
                 </div>
             )) : ""}
 
