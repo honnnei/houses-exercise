@@ -6,14 +6,19 @@ export default function HouseDetails(props) {
     const [house, setHouse ] = useState(props.location.state.houseData)
 
     const deleteHouse = () => {
-        Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${house._id}`)
-        .then((response) => {
-        //   window.location.reload(false);
-        console.log(response);
-        // setHouseData(response.data.houses)
-        }).catch((error) => {
-          console.log(error);
-        });
+        if (window.confirm("Are you sure you would like to delete this?")) {
+            Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${house._id}`)
+            .then((response) => {
+            //   window.location.reload(false);
+            console.log(response);
+            // setHouseData(response.data.houses)
+            }).catch((error) => {
+              console.log(error);
+            });
+          } else {
+            console.log('no delete')
+          }
+       
     }
     return (
         <div>
