@@ -17,6 +17,19 @@ export default function Offer() {
             });
     }
 
+    const deleteHouse = (houseId) => {
+        if (window.confirm("Are you sure you would like to delete this?")) {
+            Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${houseId}`)
+            .then((response) => {
+            //   window.location.reload(false);
+            console.log(response);
+            getHouseData();
+            }).catch((error) => {
+              console.log(error);
+            });
+          } 
+    }
+
     useEffect(() => {
         getHouseData();
       }, []);
@@ -30,6 +43,7 @@ export default function Offer() {
                     <h3>{house.price}</h3>
                     <h3>{house._id}</h3>
                     <Link to={{ pathname:"/dom", state: { houseData: house }}}>Szczegóły</Link>
+                    <button onClick={() => deleteHouse(house._id)}>Usuń</button>
                 </div>
             )) : ""}
 

@@ -15,11 +15,9 @@ export default function HouseDetails(props) {
             }).catch((error) => {
               console.log(error);
             });
-          } else {
-            console.log('no delete')
           }
-       
     }
+
     return (
         <div>
             <h3>Adres</h3>
