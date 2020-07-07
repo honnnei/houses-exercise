@@ -3,18 +3,15 @@ import Axios from 'axios';
 import { useHistory } from "react-router-dom";
 
 export default function HouseDetails(props) {
-
     const [house, setHouse ] = useState(props.location.state.houseData)
+    
     let history = useHistory();
 
     const deleteHouse = () => {
         if (window.confirm("Are you sure you would like to delete this?")) {
             Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${house._id}`)
             .then((response) => {
-            //   window.location.reload(false);
-            // console.log(response);
             history.push('/oferta')
-            // setHouseData(response.data.houses)
             }).catch((error) => {
               console.log(error);
             });
