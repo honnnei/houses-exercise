@@ -33,13 +33,13 @@ describe('App', () => {
     expect(route).toBeTruthy();
    });
 
-   test('Route to NewUser is exact', () => {   
+   test('Route to AboutUs is exact', () => {   
     let wrap = mount(<App />);                                       
     let route = wrap.find( <Route path='/o-nas' exact component={AboutUs}/>);
     expect(route).toBeTruthy();
    });
 
-  test('Route to Habit Tracker Add is exact', () => {   
+  test('Route to Offer Add is exact', () => {   
     let wrap = mount(<App />);                                       
     let route = wrap.find( <Route
       path='/oferta'
@@ -47,8 +47,6 @@ describe('App', () => {
       component={Offer}
   />);
     expect(route).toBeTruthy();
-  });
-
-    
+  });  
 });
 
