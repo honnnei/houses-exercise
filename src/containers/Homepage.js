@@ -8,8 +8,8 @@ export default function Homepage() {
     return (
         <div className="homepage-container">
             <AboutUsCard />
-            <ArticlesCard />
             <GalleryCard />
+            <ArticlesCard />
             <OfferCard />
             
         </div>

@@ -29,7 +29,33 @@ html, body, #root {
 
 .gallery-card {
   grid-area: topright;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "topleft topright"
+  "bottomleft bottomright"; */
 }
+
+.images-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* .image-1 {
+  grid-area: topleft;
+}
+
+.image-2 {
+  grid-area: topright;
+}
+
+.image-3 {
+  grid-area: bottmleft;
+}
+
+.image-4 {
+  grid-area: bottomright;
+} */
 
 .articles-card {
   grid-area: bottomleft;
@@ -66,6 +92,7 @@ html, body, #root {
   width: 50%;
   height: 50%;
   margin: 0;
+  flex: 1 0 calc(25% - 10px);
 }
 
 @media only screen and (max-width: 768px) {
