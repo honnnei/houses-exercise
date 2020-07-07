@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import Axios from 'axios';
 
 export default function AddHouseForm() {
@@ -6,6 +7,8 @@ export default function AddHouseForm() {
     const [houseOwner, setHouseOwner] = useState("");
     const [housePrice, setHousePrice] = useState("");
     const [houseArea, setHouseArea] = useState(0);
+
+    let history = useHistory();
 
     const addHouse = (event) => {
         event.preventDefault();
@@ -16,11 +19,10 @@ export default function AddHouseForm() {
            owner: houseOwner,
            price: housePrice,
            area: houseArea
-
           })
             .then((response) => {
-            //   window.location.reload(false);
             console.log(response);
+            history.push('/oferta')
             }).catch((error) => {
               console.log(error);
             });
