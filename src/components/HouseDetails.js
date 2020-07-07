@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Axios from 'axios';
 
 export default function HouseDetails(props) {
 
+    const [house, setHouse ] = useState(props.location.state.houseData)
+
     const deleteHouse = () => {
-        
+        Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${house._id}`)
+        .then((response) => {
+        //   window.location.reload(false);
+        console.log(response);
+        // setHouseData(response.data.houses)
+        }).catch((error) => {
+          console.log(error);
+        });
     }
     return (
         <div>
             <h3>Adres</h3>
-            <h4>{props.location.state.houseData.address}</h4>
+            <h4>{house.address}</h4>
             <h3>Właściciel</h3>
-            <h4>{props.location.state.houseData.owner}</h4>
+            <h4>{house.owner}</h4>
             <h3>Cena</h3>
-            <h4>{props.location.state.houseData.price}</h4>
+            <h4>{house.price}</h4>
             <h3>Powierzchnia</h3>
-            <h4>{props.location.state.houseData.area}</h4>
+            <h4>{house.area}</h4>
             <button onClick={deleteHouse}>Usuń</button>
         </div>
     )
