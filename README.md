@@ -15,3 +15,4 @@
 * Add 80% + test coverage.
 * Add error handling.
 * Add validation to the Add House Form - all fields should be required etc.
+* Use Redux, SCSS etc.
