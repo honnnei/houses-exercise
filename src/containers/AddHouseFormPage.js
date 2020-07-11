@@ -12,26 +12,10 @@ export default function AddHouseForm() {
 
     let history = useHistory();
 
-    // const addHouse = (event) => {
-    //     event.preventDefault();
-    //     Axios.post('http://mr-test-backend.sadek.usermd.net/houses', {
-    //        address: houseAddress,
-    //        owner: houseOwner,
-    //        price: housePrice,
-    //        area: houseArea
-    //       })
-    //         .then((response) => {
-    //         console.log(response);
-    //         history.push('/oferta')
-    //         }).catch((error) => {
-    //           console.log(error);
-    //         });
-
-    // }
-
-    const addHouse = (event) => {
+    const postHouseCall = async (event) => {
         event.preventDefault();
-        postHouse(houseAddress, houseOwner, housePrice, houseArea);
+        await postHouse(houseAddress, houseOwner, housePrice, houseArea);
+        history.push('/oferta');
     }
 
     return (
@@ -62,7 +46,7 @@ export default function AddHouseForm() {
                 value={houseArea}
                 onChange={(e) => setHouseArea(e.target.value)}
                 />
-                <button className="subtitle" onClick={addHouse}>Dodaj Dom</button>
+                <button className="subtitle" onClick={postHouseCall}>Dodaj Dom</button>
             </form>
         </div>
     );

@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { useHistory } from "react-router-dom";
+import { deleteHouse } from '../api';
 
 export default function HouseDetails(props) {
     const [house, setHouse ] = useState(props.location.state.houseData)
     
     let history = useHistory();
 
-    const deleteHouse = () => {
+    const deleteHouseCall = async (houseId) => {
         if (window.confirm("Are you sure you would like to delete this?")) {
-            Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${house._id}`)
-            .then((response) => {
-            history.push('/oferta')
-            }).catch((error) => {
-              console.log(error);
-            });
+            await deleteHouse(houseId);
+            history.push('/oferta');
           } 
     }
 
@@ -28,7 +25,7 @@ export default function HouseDetails(props) {
             <h4>{house.price}</h4>
             <h3>Powierzchnia</h3>
             <h4>{house.area}</h4>
-            <button onClick={deleteHouse}>Usuń</button>
+            <button onClick={() => deleteHouseCall(house._id)}>Usuń</button>
         </div>
     )
 }

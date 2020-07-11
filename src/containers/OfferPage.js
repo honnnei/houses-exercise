@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
 import { Link } from "react-router-dom";
 import { getHouses, deleteHouse } from '../api';
 
 export default function Offer() {
     const [houseData, setHouseData] = useState([]);
 
-    const getHouseData = async () => {
+    const getHouseCall = async () => {
         let data = await getHouses();
         setHouseData(data.houses);
         console.log(data.houses);
     }
 
-    const deleteHouseNow = async (houseId) => {
+    const deleteHouseCall = async (houseId) => {
         if (window.confirm("Are you sure you would like to delete this?")) {
             await deleteHouse(houseId);
-            getHouseData();
+            getHouseCall();
           } 
     }
 
     useEffect(() => {
-        getHouseData();
+        getHouseCall();
     }, []);
 
     return (
@@ -32,7 +31,7 @@ export default function Offer() {
                     <h3>{house.address}</h3>
                     <h3>{house.price}</h3>
                     <button className="subtitle"><Link to={{ pathname:"/dom", state: { houseData: house }}}>Szczegóły</Link></button>
-                    <button className="subtitle" onClick={() => deleteHouseNow(house._id)}>Usuń</button>
+                    <button className="subtitle" onClick={() => deleteHouseCall(house._id)}>Usuń</button>
                 </div>
             )) : ""}
         </div>
