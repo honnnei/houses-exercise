@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
+import { postHouse } from '../api';
 
 export default function AddHouseForm() {
     const [houseAddress, setHouseAddress] = useState("");
@@ -11,21 +12,26 @@ export default function AddHouseForm() {
 
     let history = useHistory();
 
+    // const addHouse = (event) => {
+    //     event.preventDefault();
+    //     Axios.post('http://mr-test-backend.sadek.usermd.net/houses', {
+    //        address: houseAddress,
+    //        owner: houseOwner,
+    //        price: housePrice,
+    //        area: houseArea
+    //       })
+    //         .then((response) => {
+    //         console.log(response);
+    //         history.push('/oferta')
+    //         }).catch((error) => {
+    //           console.log(error);
+    //         });
+
+    // }
+
     const addHouse = (event) => {
         event.preventDefault();
-        Axios.post('http://mr-test-backend.sadek.usermd.net/houses', {
-           address: houseAddress,
-           owner: houseOwner,
-           price: housePrice,
-           area: houseArea
-          })
-            .then((response) => {
-            console.log(response);
-            history.push('/oferta')
-            }).catch((error) => {
-              console.log(error);
-            });
-
+        postHouse(houseAddress, houseOwner, housePrice, houseArea);
     }
 
     return (
