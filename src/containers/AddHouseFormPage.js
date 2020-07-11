@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Axios from 'axios';
+import { useForm } from "react-hook-form";
 import { postHouse } from '../api';
 
 export default function AddHouseForm() {
@@ -10,43 +10,51 @@ export default function AddHouseForm() {
     const [housePrice, setHousePrice] = useState("");
     const [houseArea, setHouseArea] = useState(0);
 
+    const { register, handleSubmit, watch, errors } = useForm();
+  
+    console.log(watch("houseAddress", "houseOwner", "housePrice", "houseArea"));
+
     let history = useHistory();
 
-    const postHouseCall = async (event) => {
+    const postHouseCall = async (data, event) => {
         event.preventDefault();
-        await postHouse(houseAddress, houseOwner, housePrice, houseArea);
+        await postHouse(data.houseAddress, data.houseOwner, data.housePrice, data.houseArea);
         history.push('/oferta');
     }
 
     return (
         <div className="addhouseform-container">
             <button className="subtitle"><Link to='/oferta'>Wróć</Link></button>
-            <form>
+            <form onSubmit={handleSubmit(postHouseCall)}>
                 <label>Adres</label>
                 <input
                 type="text"
-                value={houseAddress}
-                onChange={(e) => setHouseAddress(e.target.value)}
+                ref={register ({ required: true})}
+                name="houseAddress"
                 />
+                 {errors.houseAddress && <span>House Address is required</span>}
                 <label>Właściciel</label>
                 <input
                 type="text"
-                value={houseOwner}
-                onChange={(e) => setHouseOwner(e.target.value)}
+                ref={register ({ required: true})}
+                name="houseOwner"
                 />
+                 {errors.houseOwner && <span>House Owner is required</span>}
                 <label>Cena</label>
                 <input
                 type="text"
-                value={housePrice}
-                onChange={(e) => setHousePrice(e.target.value)}
+                ref={register ({ required: true})}
+                name="housePrice"
                 />
+                {errors.housePrice && <span>House Price is required</span>}
                 <label>Powierzchnia</label>
                 <input
                 type="number"
-                value={houseArea}
-                onChange={(e) => setHouseArea(e.target.value)}
+                ref={register ({ required: true})}
+                name="houseArea"
                 />
-                <button className="subtitle" onClick={postHouseCall}>Dodaj Dom</button>
+                {errors.houseArea && <span>House Area is required</span>}
+                <button className="subtitle" >Dodaj Dom</button>
             </form>
         </div>
     );

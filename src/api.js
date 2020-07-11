@@ -1,32 +1,21 @@
 import Axios from 'axios';
+const url = "http://mr-test-backend.sadek.usermd.net/houses";
 
 export const postHouse = async (houseAddress, houseOwner, housePrice, houseArea) => {
-    let res = await Axios.post('http://mr-test-backend.sadek.usermd.net/houses', {
+    let res = await Axios.post(url, {
         address: houseAddress,
         owner: houseOwner,
         price: housePrice,
         area: houseArea
     });
+    return res;
 }
 
 export const getHouses = async () => {
-    let res = await Axios.get('http://mr-test-backend.sadek.usermd.net/houses');
+    let res = await Axios.get(url);
     return res.data;   
 }
 
 export const deleteHouse = (houseId) => {
-    // if (window.confirm("Are you sure you would like to delete this?")) {
-        return Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${houseId}`);
-    // } 
+    return Axios.delete(`${url}/${houseId}`);
 }
-
-    // const deleteHouse = () => {
-    //     if (window.confirm("Are you sure you would like to delete this?")) {
-    //         Axios.delete(`http://mr-test-backend.sadek.usermd.net/houses/${house._id}`)
-    //         .then((response) => {
-    //         history.push('/oferta')
-    //         }).catch((error) => {
-    //           console.log(error);
-    //         });
-    //       } 
-    // }
