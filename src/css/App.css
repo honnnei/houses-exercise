@@ -7,48 +7,6 @@ html, body, #root {
   height: 100vh;
 }
 
-.app-container {
-  height: 100vh;
-}
-
-.about-us-card {
-  grid-area: topleft;
-}
-
-.gallery-card {
-  grid-area: topright;
-}
-
-/* .images-container {
-  display: flex;
-  flex-wrap: wrap;
-} */
-
-.articles-card {
-  grid-area: bottomleft;
-  background-image: url(https://images.unsplash.com/photo-1523217582562-09d0def993a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80);
-}
-
-.offer-card {
-  grid-area: bottomright;
-}
-
-.card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: 0;
-}
-
-.image {
-  width: 50%;
-  height: 50%;
-  margin: 0;
-  flex: 1 0 calc(25% - 10px);
-}
-
 a {
   text-decoration: none;
 }

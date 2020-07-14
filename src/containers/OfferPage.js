@@ -24,7 +24,17 @@ const Title = styled.h1`
     color: black;
 `;
 
-export default function Offer() {
+const Offer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    grid-area: bottomright;
+`;
+
+export default function OfferPage() {
     const [houseData, setHouseData] = useState([]);
 
     const getHouseCall = async () => {
@@ -45,7 +55,7 @@ export default function Offer() {
     }, []);
 
     return (
-        <div>
+        <Offer>
             <Button><Link to='/'>Strona Główna</Link></Button>
             <Button><Link to='/dodaj-dom'>Dodaj Dom</Link></Button>
             {houseData ? houseData.map((house, id) => (
@@ -56,6 +66,6 @@ export default function Offer() {
                     <Button onClick={() => deleteHouseCall(house._id)}>Usuń</Button>
                 </div>
             )) : ""}
-        </div>
+        </Offer>
     );
 }

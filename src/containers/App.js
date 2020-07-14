@@ -7,12 +7,17 @@ import OfferPage from './OfferPage';
 import HouseDetails from '../components/HouseDetails';
 import AddHouseFormPage from './AddHouseFormPage';
 import Router from './Router';
+import styled from 'styled-components';
+
+const AppContainer = styled.div`
+  height: 100vh;
+`;
 
 function App() {
   return (
-    <div className="app-container">
+    <AppContainer>
       <Router />
-    </div>
+    </AppContainer>
   );
 }
 
