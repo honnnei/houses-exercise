@@ -1,6 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import { getHouses, deleteHouse } from '../api';
+import styled from 'styled-components';
+
+const Button = styled.button`
+    border: solid rgb(34, 147, 253) 1px;
+    background-color: white;
+    background-size: inherit;
+    padding: 0.5em;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: rgb(34, 147, 253);
+`;
+
+const Subtitle = styled.h2`
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: rgb(34, 147, 253);
+`;
+const Title = styled.h1`
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: black;
+`;
 
 export default function Offer() {
     const [houseData, setHouseData] = useState([]);
@@ -24,14 +46,14 @@ export default function Offer() {
 
     return (
         <div>
-            <button className="subtitle"><Link to='/'>Strona Główna</Link></button>
-            <button className="subtitle"><Link to='/dodaj-dom'>Dodaj Dom</Link></button>
+            <Button><Link to='/'>Strona Główna</Link></Button>
+            <Button><Link to='/dodaj-dom'>Dodaj Dom</Link></Button>
             {houseData ? houseData.map((house, id) => (
-                <div kay={id}>
-                    <h3>{house.address}</h3>
-                    <h3>{house.price}</h3>
-                    <button className="subtitle"><Link to={{ pathname:"/dom", state: { houseData: house }}}>Szczegóły</Link></button>
-                    <button className="subtitle" onClick={() => deleteHouseCall(house._id)}>Usuń</button>
+                <div key={id}>
+                    <Subtitle>{house.address}</Subtitle>
+                    <Title>{house.price}</Title>
+                    <Button><Link to={{ pathname:"/dom", state: { houseData: house }}}>Szczegóły</Link></Button>
+                    <Button onClick={() => deleteHouseCall(house._id)}>Usuń</Button>
                 </div>
             )) : ""}
         </div>

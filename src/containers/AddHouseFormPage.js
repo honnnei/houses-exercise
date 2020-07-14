@@ -3,6 +3,17 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { postHouse } from '../api';
+import styled from 'styled-components';
+
+const Button = styled.button`
+    border: solid rgb(34, 147, 253) 1px;
+    background-color: white;
+    background-size: inherit;
+    padding: 0.5em;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: rgb(34, 147, 253);
+`;
 
 export default function AddHouseForm() {
     const [houseAddress, setHouseAddress] = useState("");
@@ -23,8 +34,8 @@ export default function AddHouseForm() {
     }
 
     return (
-        <div className="addhouseform-container">
-            <button className="subtitle"><Link to='/oferta'>Wróć</Link></button>
+        <div>
+            <Button className="subtitle"><Link to='/oferta'>Wróć</Link></Button>
             <form onSubmit={handleSubmit(postHouseCall)}>
                 <label>Adres</label>
                 <input
@@ -54,7 +65,7 @@ export default function AddHouseForm() {
                 name="houseArea"
                 />
                 {errors.houseArea && <span>House Area is required</span>}
-                <button className="subtitle" >Dodaj Dom</button>
+                <Button>Dodaj Dom</Button>
             </form>
         </div>
     );

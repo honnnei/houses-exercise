@@ -11,18 +11,6 @@ html, body, #root {
   height: 100vh;
 }
 
-.homepage-container {
-  width: 100vw;
-  height: 100vw;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  grid-template-areas: "topleft topright"
-  "bottomleft bottomright";
-}
-
 .about-us-card {
   grid-area: topleft;
 }
@@ -31,10 +19,10 @@ html, body, #root {
   grid-area: topright;
 }
 
-.images-container {
+/* .images-container {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 .articles-card {
   grid-area: bottomleft;
@@ -61,40 +49,10 @@ html, body, #root {
   flex: 1 0 calc(25% - 10px);
 }
 
-/* Homepage */
-
-.title {
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-  color: black;
-}
-
-.subtitle {
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-  color: rgb(34, 147, 253);
-}
-
-.subtitle-2 {
-  font-family: 'Lato', sans-serif;
-  text-transform: uppercase;
-}
-
 a {
   text-decoration: none;
 }
 
-button {
-  border: solid rgb(34, 147, 253) 1px;
-  background-color: white;
-  background-size: inherit;
-  padding: 0.5em;
-}
-
-p {
-  padding: 2em;
-  text-align: justify;
-}
 
 @media only screen and (max-width: 768px) {
   .card {

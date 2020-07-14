@@ -2,6 +2,33 @@ import React, { useState } from 'react';
 import Axios from 'axios';
 import { useHistory } from "react-router-dom";
 import { deleteHouse } from '../api';
+import { Link } from "react-router-dom";
+import styled from 'styled-components';
+
+const Button = styled.button`
+    border: solid rgb(34, 147, 253) 1px;
+    background-color: white;
+    background-size: inherit;
+    padding: 0.5em;
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: rgb(34, 147, 253);
+`;
+
+const Subtitle = styled.h2`
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: rgb(34, 147, 253);
+`;
+const Title = styled.h1`
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    color: black;
+`;
+
+const House = styled.div`
+
+`;
 
 export default function HouseDetails(props) {
     const [house, setHouse ] = useState(props.location.state.houseData)
@@ -17,16 +44,17 @@ export default function HouseDetails(props) {
     }
 
     return (
-        <div>
-            <h3>Adres</h3>
-            <h4>{address}</h4>
-            <h3>Właściciel</h3>
-            <h4>{owner}</h4>
-            <h3>Cena</h3>
-            <h4>{price}</h4>
-            <h3>Powierzchnia</h3>
-            <h4>{area}</h4>
-            <button onClick={() => deleteHouseCall(house._id)}>Usuń</button>
-        </div>
+        <House>
+            <Button><Link to='/oferta'>Wróc do Oferty</Link></Button>
+            <Title>Adres</Title>
+            <Subtitle>{address}</Subtitle>
+            <Title>Właściciel</Title>
+            <Subtitle>{owner}</Subtitle>
+            <Title>Cena</Title>
+            <Subtitle>{price}</Subtitle>
+            <Title>Powierzchnia</Title>
+            <Subtitle>{area}</Subtitle>
+            <Button onClick={() => deleteHouseCall(house._id)}>Usuń</Button>
+        </House>
     )
 }
